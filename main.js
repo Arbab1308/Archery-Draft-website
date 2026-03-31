@@ -157,8 +157,15 @@ function initScrollytelling() {
   const render = () => {
     if (images[archerySequence.frame]) {
       context.clearRect(0, 0, canvas.width, canvas.height);
-      // Draw image scaled to the 2x resolution
-      context.drawImage(images[archerySequence.frame], 0, 0, canvas.width, canvas.height);
+      
+      // Reduce Zoom: Draw image at 75% scale centered on canvas
+      const scale = 0.75;
+      const w = canvas.width * scale;
+      const h = canvas.height * scale;
+      const x = (canvas.width - w) / 2;
+      const y = (canvas.height - h) / 2;
+      
+      context.drawImage(images[archerySequence.frame], x, y, w, h);
     }
   };
 
@@ -222,32 +229,19 @@ function initScrollytelling() {
   });
 
   // --- Phase 3: Anatomy Logic ---
-  const lines = ['riser', 'limbs', 'string', 'nock', 'rest'];
+  const labels = ['riser', 'limbs', 'string', 'nock', 'rest'];
   
-  lines.forEach((part, index) => {
-    const line = document.getElementById(`line-${part}`);
+  labels.forEach((part, index) => {
     const label = document.getElementById(`label-${part}`);
     
-    gsap.to(line, {
-      strokeDashoffset: 0,
-      opacity: 1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: '#anatomy',
-        start: `${index * 18}% center`,
-        end: `${(index + 1) * 18}% center`,
-        scrub: 1,
-      }
-    });
-
     gsap.to(label, {
       opacity: 1,
       x: 0,
-      ease: 'back.out(1.7)',
+      ease: 'power3.out',
       scrollTrigger: {
         trigger: '#anatomy',
-        start: `${index * 18}% center`,
-        end: `${(index + 1) * 18}% center`,
+        start: `${index * 15}% center`,
+        end: `${(index + 1) * 15}% center`,
         scrub: 1,
       }
     });
