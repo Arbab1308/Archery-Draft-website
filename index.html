@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMPERATOR | The Art of Archery</title>
+    <meta name="description" content="Premium archery items for the ultimate hunt. Experience the story behind every bow.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- GSAP & Lenis CDNs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="loader-text" id="loader-text">IMPERATOR</div>
+        <div class="loader-percentage" id="loader-perc">0%</div>
+        <div class="loader-progress" id="loader-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">IMPERATOR</div>
+        <div class="nav-links">
+            <a href="#collector">THE COLLECTOR</a>
+            <a href="#craft">THE CRAFT</a>
+            <a href="#gallery">GALLERY</a>
+            <a href="#investment">INVESTMENT</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero" style="background-image: url('Assets/hero.png');">
+        <div class="hero-content">
+            <h1 class="hero-tagline" id="tagline">
+                <span>You Don't Hunt</span>
+                <span>for Meat.</span>
+                <span>You Hunt for</span>
+                <span>the Story.</span>
+            </h1>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </header>
+
+    <!-- Phase 2: Scrollytelling Section -->
+    <section id="scrollytelling">
+        <div class="canvas-container">
+            <canvas id="archery-canvas"></canvas>
+        </div>
+    </section>
+
+    <!-- Phase 3: Bow Anatomy -->
+    <section id="anatomy">
+        <div class="anatomy-container">
+            <div class="anatomy-image-wrapper">
+                <img src="Assets/bow_parts.png" alt="IMPERATOR Bow Anatomy" id="bow-base">
+                <svg id="anatomy-svg" viewBox="0 0 1000 600">
+                    <!-- Lines will be drawn here by GSAP -->
+                    <path id="line-riser" d="M 400 300 L 200 150" stroke="#f7b733" stroke-width="2" fill="none" class="anatomy-line" />
+                    <path id="line-limbs" d="M 450 150 L 200 50" stroke="#f7b733" stroke-width="2" fill="none" class="anatomy-line" />
+                    <path id="line-string" d="M 600 300 L 800 150" stroke="#f7b733" stroke-width="2" fill="none" class="anatomy-line" />
+                    <path id="line-nock" d="M 650 350 L 800 450" stroke="#f7b733" stroke-width="2" fill="none" class="anatomy-line" />
+                    <path id="line-rest" d="M 500 320 L 800 320" stroke="#f7b733" stroke-width="2" fill="none" class="anatomy-line" />
+                </svg>
+            </div>
+
+            <div class="anatomy-labels">
+                <div class="label" id="label-riser">
+                    <h3>THE RISER</h3>
+                    <p><strong>The Control Hub.</strong> Hand-carved from figured walnut for supreme strength. Houses an ergonomic grip while deadening vibration.</p>
+                </div>
+                <div class="label" id="label-limbs">
+                    <h3>THE LIMBS</h3>
+                    <p><strong>The Engine.</strong> Laminated hardwoods and high-stress fiberglass securely store energy, delivering a violently smooth draw curve.</p>
+                </div>
+                <div class="label" id="label-string">
+                    <h3>THE STRING</h3>
+                    <p><strong>The Lifeline.</strong> Spun from zero-creep Dyneema fiber. Maximizes arrow velocity by eliminating stretch.</p>
+                </div>
+                <div class="label" id="label-nock">
+                    <h3>THE NOCK</h3>
+                    <p><strong>The Critical Link.</strong> The precision anchor point locking the arrow to the string, ensuring flawless departure alignment.</p>
+                </div>
+                <div class="label" id="label-rest">
+                    <h3>THE ARROW REST</h3>
+                    <p><strong>The Foundation.</strong> Engineered for zero interference, providing the absolute consistent launch platform.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 4: Brand Story -->
+    <section id="brand-story">
+        <div class="story-bg" style="background-image: url('Assets/wood_texture.png');"></div>
+        <div class="overlay"></div>
+        <div class="story-content">
+            <h2 id="story-tagline">
+                <span>We Don't Sell You a Bow.</span>
+                <span class="highlight">We sell you the wood.</span>
+            </h2>
+        </div>
+    </section>
+
+    <!-- Phase 5: Common Questions (FAQ) -->
+    <section id="faq">
+        <div class="container">
+            <h2 class="section-title">COMMON QUESTIONS</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>HOW LONG IS THE CURRENT WAITLIST?</span>
+                        <div class="icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Our current waitlist for a bespoke IMPERATOR bow is approximately 6 to 8 months. Each bow is handcrafted by a single master bowyer from start to finish, ensuring unparalleled quality that cannot be rushed.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>WHAT KIND OF WOOD DO YOU USE?</span>
+                        <div class="icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>We primarily utilize sustainably sourced Dark Walnut, White Oak, and Exotic Figured Maples. Every piece is hand-selected for its structural integrity, grain density, and aesthetic character.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>ARE THE BOWS CUSTOMIZABLE?</span>
+                        <div class="icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes. Every IMPERATOR bow is an investment tailored to the individual. You can specify draw weight, length, wood combination, and custom engravings during the consultation phase.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>WHAT IS THE WARRANTY?</span>
+                        <div class="icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>We provide a Lifetime Craftsmanship Warranty. If any structural failure occurs due to a defect in materials or workmanship, we will repair or replace your bow at no cost.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+</body>
+</html>
