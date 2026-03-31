@@ -158,8 +158,8 @@ function initScrollytelling() {
     if (images[archerySequence.frame]) {
       context.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Reduce Zoom: Draw image at 75% scale centered on canvas
-      const scale = 0.75;
+      // Balanced Zoom: Middle of previous (1.0) and current (0.75)
+      const scale = 0.875;
       const w = canvas.width * scale;
       const h = canvas.height * scale;
       const x = (canvas.width - w) / 2;
