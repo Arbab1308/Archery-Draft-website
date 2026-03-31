@@ -231,22 +231,24 @@ function initScrollytelling() {
     gsap.to(line, {
       strokeDashoffset: 0,
       opacity: 1,
+      ease: 'power2.out',
       scrollTrigger: {
         trigger: '#anatomy',
-        start: `${index * 15}% center`,
-        end: `${(index + 1) * 15}% center`,
-        scrub: true,
+        start: `${index * 18}% center`,
+        end: `${(index + 1) * 18}% center`,
+        scrub: 1,
       }
     });
 
     gsap.to(label, {
       opacity: 1,
       x: 0,
+      ease: 'back.out(1.7)',
       scrollTrigger: {
         trigger: '#anatomy',
-        start: `${index * 15}% center`,
-        end: `${(index + 1) * 15}% center`,
-        scrub: true,
+        start: `${index * 18}% center`,
+        end: `${(index + 1) * 18}% center`,
+        scrub: 1,
       }
     });
   });
