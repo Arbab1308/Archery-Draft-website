@@ -159,7 +159,7 @@ function initScrollytelling() {
       context.clearRect(0, 0, canvas.width, canvas.height);
       
       // Balanced Zoom: Middle of previous (1.0) and current (0.75)
-      const scale = 0.875;
+      const scale = 0.95;
       const w = canvas.width * scale;
       const h = canvas.height * scale;
       const x = (canvas.width - w) / 2;
@@ -297,5 +297,53 @@ function initScrollytelling() {
       start: 'top 80%',
       toggleActions: 'play none none reverse'
     }
+  });
+
+  // --- Phase 6: CTA & Footer Reveals ---
+  gsap.from('.cta-title', {
+    y: 50,
+    opacity: 0,
+    duration: 1.2,
+    scrollTrigger: {
+      trigger: '#cta',
+      start: 'top 70%',
+    }
+  });
+
+  gsap.from('.cta-feature', {
+    y: 30,
+    opacity: 0,
+    stagger: 0.2,
+    duration: 1,
+    scrollTrigger: {
+      trigger: '.cta-features',
+      start: 'top 80%',
+    }
+  });
+
+  gsap.from('.footer-col', {
+    y: 20,
+    opacity: 0,
+    stagger: 0.1,
+    duration: 0.8,
+    scrollTrigger: {
+      trigger: 'footer',
+      start: 'top 90%',
+    }
+  });
+
+  // Smooth Scroll for Nav Links
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href');
+      const target = document.querySelector(targetId);
+      if (target) {
+        lenis.scrollTo(target, { 
+          offset: -80, // Accounts for sticky nav
+          duration: 1.5
+        });
+      }
+    });
   });
 }
