@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMPERATOR | The Art of Archery</title>
     <meta name="description" content="Premium archery items for the ultimate hunt. Experience the story behind every bow.">
+    <meta name="keywords" content="archery, bow, handcrafted, custom bow, Texas, IMPERATOR, longbow, recurve">
+    <meta name="author" content="IMPERATOR Bow Company">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Sharing -->
+    <!-- NOTE: Update og:image and twitter:image to an absolute URL once deployed (e.g. https://yourdomain.com/Assets/hero.png) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="IMPERATOR | The Art of Archery">
+    <meta property="og:description" content="Premium handcrafted archery bows forged in Texas. Experience the story behind every bow.">
+    <meta property="og:image" content="Assets/hero.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="IMPERATOR | The Art of Archery">
+    <meta name="twitter:description" content="Premium handcrafted archery bows forged in Texas.">
+    <meta name="twitter:image" content="Assets/hero.png">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,9 +45,14 @@
     </div>
 
     <!-- Navigation -->
-    <nav>
-        <div class="logo">IMPERATOR</div>
-        <div class="nav-links">
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="logo" aria-label="IMPERATOR home">IMPERATOR</div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
             <a href="#scrollytelling">THE COLLECTOR</a>
             <a href="#anatomy">THE CRAFT</a>
             <a href="#brand-story">GALLERY</a>
@@ -185,7 +206,7 @@
 
             <div class="slot-counter">
                 <span class="dot"></span>
-                ONLY 3 SLOTS REMAINING FOR MARCH
+                ONLY 3 SLOTS REMAINING FOR <span id="current-month"></span>
             </div>
 
             <a href="#claim" class="cta-btn">

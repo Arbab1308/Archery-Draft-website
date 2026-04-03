@@ -18,6 +18,37 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 
+// --- Dynamic Month for Slot Counter ---
+const monthEl = document.getElementById('current-month');
+if (monthEl) {
+  const monthName = new Date().toLocaleString('en-US', { month: 'long' }).toUpperCase();
+  monthEl.textContent = monthName;
+}
+
+// --- Mobile Hamburger Menu ---
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    // Prevent background scroll while mobile menu is open
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  // Close mobile menu when a link is clicked
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+}
+
 // --- GSAP Initialization ---
 gsap.registerPlugin(ScrollTrigger);
 
